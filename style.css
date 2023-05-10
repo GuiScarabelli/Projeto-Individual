@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(152, 99, 99);
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+.container{
+  background-color: blanchedalmond;
+  height: 500px;
+  width: 100%;
+  padding: 15px;
+  background-image: url(./assets/foto_container.jpg);
+}
+
+.blur {
+  background: rgba(41, 41, 41, 0.826);
+  backdrop-filter: blur(2,5px);
+  margin-right: 10px;
+  height: 531px;
+  width: 103%;
+  /* margin-top: 100px; */
+  margin: -339px 65px -63px -15px;
+}
+
+.navbar{
+  position: fixed;
+  display: flex;
+  background-color: aqua;
+  margin-left: 40px;
+  margin-right: 40px;
+  height: 50px;
+  border-radius: 15px;
+}
+
+.navbar span{
+  margin-top: 13px;
+  margin-left: 80px;
+}
+
+.navbar a{
+  text-decoration: none;
+    }
+
+.btn_redirect{
+  color:#ff0000;
+  font-size: medium;
+  margin-left: -100px;
+}
+
+#frase_inicio{
+  display: flex;
+  height: 700px;
+  margin: 40px 110px;
+  border-radius: 15px;
+  background: #ca1515;
+  text-align: start;
+  animation: go-back 1s;
+}
+
+
+
+@keyframes go-back {
+  from {
+    transform: translateX(100px);
+  }
+  to {
+    transform: translateX(-20);
+  }
+} 
+
+ .texto_foto{
+  display: flex;
+  /* justify-content: flex-end; */
+  color: rgb(241, 239, 239);
+  margin-top: 145px;
+  margin-left: 300px;
+  /* margin-right: 500px; */
+  text-align: center;
+  font-size: larger;
+}
+
+.navbar .item{
+  width: 300px;
+  margin-left: 600px;
+  margin-right: 50px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.como_surgiu{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  /* margin-right: 138px; */
+  margin-top: 37px;
+  margin-left: 90px;
+  /* margin-bottom: 175px; */
+  font-size: larger;
+  /* background-color: antiquewhite; */
+  align-items: center;
+  width: 830px;
+  height: 200px;
+}
+
+
+.foto_como_surgiu{
+  background-color: #ad5151;
+    background-image: url(././Assets/doces-barbaros.jpeg);
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    height: 376px;
+    width: 699px;
+    margin-top: 268px;
+    margin-left: -771px;
+}
+
+
+.teste{
+  display: flex;
+    align-items: end;
+    justify-content: center;
+    margin-right: 382px;
+    width: 50px;
+    margin-left: -300px;
+    margin-top: 650px;
+    height: 50px;
+    background-color: azure;
+  }
+
+.contexto{
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  /* margin-right: 320px; */
+  width: 0;
+  /* margin-left: 320px; */
+  margin-top: 650px;
+  height: 50px;
+  background-color: azure;
+}
+
