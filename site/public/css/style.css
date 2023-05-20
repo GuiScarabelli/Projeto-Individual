@@ -5,12 +5,12 @@ body {
   padding: 0;
   overflow-x: hidden;
   font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color:#ffffff;
+  background-color:#EFECCA;
 }
  
 html{
     scroll-behavior: smooth;
-  transition: scroll-behavior 0.5s;
+    transition: scroll-behavior 0.5s;
 } 
 
 .container{
@@ -22,7 +22,7 @@ html{
     background-image: url(../assets/foto_container.jpg);
   }
 
-.blur {
+.blur_container {
     background: rgba(41, 41, 41, 0.826);
     backdrop-filter: blur(2,5px);
     margin-right: 10px;
@@ -32,17 +32,28 @@ html{
     margin: -339px 65px -63px -15px;
   }
 
+
+  /* Style da navbar */
 .navbar{
-  position: fixed;
+    position: fixed;
     display: flex;
     background-color: #5A764F;
     margin-left: -15px;
     margin-right: 40px;
-    margin-top: -14px;
+    margin-top: -15px;
     height: 70px;
     width: 101%;
-    /* border-radius: 15px;*/
   }
+
+.navbar .item{
+  width: 300px;
+  margin-left: 740px;
+  margin-right: 50px;
+  margin-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
 
 .navbar span{
   margin-top: 26px;
@@ -51,7 +62,7 @@ html{
 
 .navbar a{
   text-decoration: none;
-  }
+}
   
 
 .btn_redirect{
@@ -60,175 +71,38 @@ html{
   margin-left: -100px;
 }
 
-#historia{
-  margin-top: 65px;
-}
-/* 
-@keyframes go-back {
-  from {
-    transform: translateX(100px);
-  }
-  to {
-    transform: translateX(-40);
-  } 
-}*/
-
-
+/* style da imagem borrada */
  .texto_foto{
   display: flex;
-    /* justify-content: flex-end; */
     color: rgb(241, 239, 239);
     margin-top: 226px;
     margin-left: 300px;
     margin-bottom: auto;
-    /* margin-right: 500px; */
     text-align: center;
     font-size: larger;
 }
 
-.navbar .item{
-  width: 300px;
-    margin-left: 740px;
-    margin-right: 50px;
-    margin-top: 26px;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-}
 
-
- .foto_como_surgiu{
-  /* background-color: #ad5151;
-  background-image: url(../Assets/doces-barbaros.jpeg); */
-  background-position: center;
-  align-items: center;
-  display: flex;
-  justify-content: space-around;
-  /* height: 376px; */
-  /* width: 699px; */
-  /* margin-top: 268px;
-  margin-left: 250px; */
-}
-
-.div_contexto{
-  display: flex;
-  width: 92%;
-  height: 780px;
-  margin-left: 50px;
-  margin-top: 50px;
-  border-radius: 15px;
-  background: #D9B44A;
-  text-align: start;
-  animation: go-back 1s;
-}
-
-/* .contexto{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin-right: 138px;
-  margin-top: 37px;
-  margin-left: 155px;
-  font-size: larger;
-  align-items: center;
-  width: 830px;
-  height: 200px;
-} */
-
-.foto_protesto{
-     background-color: #ad5151;
-    background-repeat: no-repeat;
-    background-image: url(../Assets/imagem_protesto.jpg);
-    background-position: center;
-    align-items: center;
-    display: flex;
-    justify-content: space-around;
-    height: 376px;
-    width: 699px;
-    margin-top: 268px;
-    margin-left: -900px;
-  }
-
-
-  .div_festival{
-    display: flex;
-    width: 92%;
-    height: 780px;
-    margin-left: 50px;
-    margin-top: 50px;
-    border-radius: 15px;
-    background: #D9B44A;
-    text-align: start;
-    animation: go-back 1s;
-  }
-
-
-  .festival{
-      display: flex;
-  justify-content: center;
-  text-align: center;
-  margin-right: 138px;
-  margin-top: 37px;
-  margin-left: 155px;
-  font-size: larger;
-  align-items: center;
-  width: 830px;
-  height: 200px;
-  }
-
-  
-  .foto_festival{
-    background-color: #ad5151;
-    background-image: url(../Assets/festival-de-musica.jpg);
-    background-position: center;
-    align-items: center;
-    display: flex;
-    justify-content: space-around;
-    height: 376px;
-    width: 699px;
-    margin-top: 268px;
-    margin-left: -900px;
-  }
-
-  
-  /* .vl{
-    position: relative;
-    top: 123px;
-    bottom: 0;
-    left: 54%;
-    width: 2px;
-    height: 100px;
-    background-color: black;
-    transform: translateX(-50%);
-  } */
-
+/* Style de todos os titulos dos textos */
   .titulo_historia{
     text-align: center;
-    /* margin-top: 10px;
-    margin-left: 85px; */
-    /* opacity: 0; */
-    /* transition: opacity 1s cubic-bezier(0.4, 0, 1, 1);*/
   }
 
+/* Onde o botão redireciona, começo dos textos */
   #point1{
-    /* background-color: #5A764F; */
     display: flex;
     text-align: center;
-    margin: 15px auto 15px auto;
+    margin: 0px auto 0px auto;
   }
 
-  .mae{
+/* Essa div é onde engloba os textos e as imagens */
+  .div_mae{
     width: 100%;
     display: flex;
   }
 
-  .foto_foda img{
-    width: 700px;
-      height: 350px;
-      margin-right: 20px;
-      margin-left: 25px;
-   }
 
+  /* Primeiro texto sobre a historia */
   .como_surgiu{
     /* display: flex; */
     justify-content: center;
@@ -240,10 +114,392 @@ html{
     margin-left: 22px;
     margin-top: 20px;
     }
-
-    #point2{
-      display: flex;
-      text-align: center;
-      margin: 26.5px auto 26.5px auto;
-    }
     
+
+  .foto_cantores img{
+    width: 700px;
+    height: 350px;
+    margin-right: 20px;
+    margin-left: 25px;
+  }
+
+
+
+  /* Onde o botão redireciona, começo dos textos  */
+    #point2{
+    display: flex;
+    text-align: center;
+    margin: 5px auto 5px auto;
+    }
+
+    .contexto{
+      justify-content: center;
+      text-align: center;
+      font-size: larger;
+      align-items: center;
+      width: 830px;
+      height: 200px;
+      margin-left: 22px;
+      margin-top: 20px;
+      }
+      
+  
+    .foto_protesto img{
+      width: 700px;
+      height: 350px;
+      margin-right: 20px;
+      margin-left: 25px;
+    }
+
+    
+ /* Onde o botão redireciona, começo dos textos  */
+
+    #point3{
+    /* background-color: #5A764F; */
+    display: flex;
+    text-align: center;
+    margin: 5px auto 5px auto;
+    }
+
+    .evolucao{
+      justify-content: center;
+      text-align: center;
+      font-size: larger;
+      align-items: center;
+      width: 830px;
+      height: 200px;
+      margin-left: 22px;
+      margin-top: 20px;
+      }
+      
+  
+    .foto_evolucao img{
+      width: 700px;
+      height: 350px;
+      margin-right: 20px;
+      margin-left: 25px;
+    }
+
+
+/* Style do modal de login */
+#popupLogin{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: absolute;
+  background-color: #D9B44A;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  padding: 50px;
+  visibility: hidden;
+  height: 360px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#popupLogin.active{
+  visibility: visible;
+  opacity: 11;
+  transition: 0.5s;
+  top: 50%;
+}
+
+.popupCadastro-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 4rem;
+  padding-bottom: 1rem;
+}
+
+.popupCadastro-header h2 {
+  text-transform: uppercase;
+  margin-left: 50%;
+  transform: translate(-50%);
+  color: #5A764F;
+  font-size: 28px;
+}
+.popupCadastro-header h2 {
+  text-transform: uppercase;
+  margin-left: 50%;
+  transform: translate(-50%);
+  color: #5A764F;
+  font-size: 28px;
+}
+
+
+.popupLogin-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.popupLogin-header h2 {
+  text-transform: uppercase;
+  margin-left: 50%;
+  transform: translate(-50%);
+  color: #5A764F;
+  font-size: 28px;
+}
+
+.modal-body {
+  height: 300px;
+  margin-left: 87px;
+  margin-bottom: 35px;
+  width: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: self-end;
+}
+
+.modal-body .input{
+  margin-left: 115px;
+  color: #5A764F;
+}
+
+.modal-body input {
+  margin-bottom: 20px;
+  width: 130%;
+  height: 45px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.containerModal#blur.active{
+  filter: blur(20px);
+}
+
+
+h2{
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#popupCadastro{
+  position: absolute;
+  background-color: #333;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  padding: 50px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#popupCadastro.active{
+  visibility: visible;
+  opacity: 11;
+  transition: 0.5s;
+  top: 50%;
+}
+
+
+
+.footer{
+  background-color: #333;
+  height: 100px;
+}
+
+.botao{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 12px 35px 0px 0px;
+}
+
+.seta-baixo{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.seta-baixo img{
+  width: 30px;
+  height: 30px;
+  animation: mover 2s infinite;
+}
+
+@keyframes mover{
+  0%{
+      margin-top: 0px;
+  }
+  50%{
+      margin-top:15px;
+  }
+  100%{
+      margin-top:0px;
+  }
+}
+ 
+
+#close-modal {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#close-modal img {
+  width: 20px;
+  transition: 0.15s;
+
+}
+
+#close-modal img:hover {
+  width: 23px;
+}
+
+
+
+/* Carrossel
+.slider::before,
+.slider::after {
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+}
+
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.slider::before {
+  left: 0;
+  top: 0;
+}
+
+.slider .slide-track {
+  animation: scroll 40s linear infinite;
+  display: flex;
+  width: calc(var(--slide-width) * 14);
+}
+
+.slider .slide {
+  height: fit-content;
+  width: var(--slide-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc((var(--slide-width) * -1) * 7));
+  }
+}
+
+.slide img {
+  width: 80%;
+  aspect-ratio: 1;
+}
+
+.slide span {
+  color: #e1e1e1;
+  font-family: 'Montserrat';
+  align-self: flex-start;
+}
+
+.slide > .nome-musica {
+  font-weight: bold;
+  color: #3B2F57;
+}
+
+.slide > .artista {
+  font-weight: thin;
+  color: #3B2F57;
+}
+.slider {
+  --slide-width: 250px;
+  height: fit-content;
+  margin: 80px auto;
+
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+} */
+
+
+#footer{
+  background-color: #D9B44A;
+  bottom: 0;
+  position: relative;
+}
+
+.containerFooter{
+  width: 75%;
+  margin: auto;
+}
+
+.containerFooter .div_menu_contato{
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerFooter .div_menu_contato div{
+  width: 50%;
+  margin-bottom: 15px;
+}
+
+.containerFooter .div_menu_contato img{
+  margin-bottom: -5px;
+}
+
+.menuFooter .listMenuFooter{
+  list-style: none;
+}
+
+.menuFooter .listMenuFooter a{
+  text-decoration: none;
+  color: #ffffff;
+  margin: -40px;
+}
+
+.menuFooter .listMenuFooter a:hover{
+  color: #000000;
+  border-bottom: solid 2px #000000;
+}
+
+h4{
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.icon_contato{
+  margin-right: 10px;
+}
+
+.containerFooter .div_final_footer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerFooter .div_final_footer div{
+  width: fit-content;
+}

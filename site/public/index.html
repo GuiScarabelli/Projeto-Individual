@@ -6,90 +6,262 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style_error.css">
+  <script src="./js/funcoes.js"></script>
+  <script src="./js/funcoes_cadastro.js"></script>
+  <script src="./js/funcao_login.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 </head>
 
 <body>
-  <div class="container">
-    <div class="navbar">
-      <span>
-        <a href="#">logo</a>
-      </span>
-      <ul class="item">
-        <li>
-          <a href="#point1" class="btn_redirect">o que é o MPB?</a>
-        </li>
+  <div class="aviso">
+    <p class="resposta-cadastro">Login realizado com sucesso</p>
+  </div>
+  <div class="containerModal">
+      <div id="blur">
+      <div class="container">
+        <div class="navbar">
+          <span>
+            <a href="#">logo</a>
+          </span>
+          <ul class="item">
+            <li>
+              <a href="#point1" class="btn_redirect">o que é o MPB?</a>
+            </li>
+            <li>
+              <a href="#" class="btn_redirect" onclick="loginModal()">Login</a>
+            </li>
+            <li>
+              <a href="#" class="btn_redirect" onclick="toggle()"> Cadastro</a>
+            </li>
+            <li>
+              <a href="./quiz_foda.html" class="btn_redirect"> quiz</a>
+            </li>
+          </ul>
+        </div>
 
-        <li>
-          <a href="#point2" class="btn_redirect">Cadastro</a>
-        </li>
 
-        <li>
-          <a href="./cadastro.html" class="btn_redirect"> Cadastro</a>
-        </li>
+        <h1>
+          <p class="texto_foto">
+            Embarque nessa viagem do tempo<br>
+            e relembre as melhores musicas <br>
+            populares brasileira</p>
+        </h1>
 
-      </ul>
-    </div>
-    <h1>
-      <p class="texto_foto">Embarque nessa viagem do tempo<br>
-        e relembre as melhores musicas <br>
-        populares brasileira</p>
-    </h1>
-    <div class="blur">
-      <div class="section1-bottom">
-          <img src="./assets/chevronDownDark.svg" class="chevron-float" alt="Floating Chevron" >
-        </a>
+        <div class="blur_container">
+          <div class="section1-bottom">
+          </div>
+        </div>
+        <div class="seta-baixo">
+          <a href="#point1"><img src="./assets/icon/setaBaixo.png" alt="Seta Baixo"></a>
+        </div>
+      </div>
+
+
+      <div id="point1" class="como_surgiu" data-aos="fade-out" data-aos-duration="2000">
+        <span class="titulo_historia">1960 - O inicio de uma historia </span><br><br>
+      </div>
+      <div class="div_mae" data-aos="fade-up" data-aos-duration="1500">
+        <div class="como_surgiu">
+          A MPB (Música Popular Brasileira), surgiu na década de 60, durante a Ditadura Militar no Brasil. Como uma
+          espécie
+          de sucessão à Bossa Nova, a MPB misturou os ritmos desse gênero musical com os movimentos musicais dos Centros
+          Populares de Cultura da União Nacional dos Estudantes. Nessa época, artistas como Chico Buarque, Tom Jobim,
+          Caetano Veloso, Gilberto Gil, João Gilberto e Elis Regina ganharam destaque e se tornaram referências da MPB.
+        </div>
+        <div class="foto_cantores"><img src="./assets/doces-barbaros.jpeg" alt=""> </div>
+      </div>
+      <div class="seta-baixo">
+        <a href="#point2"><img src="./assets/icon/setaBaixo.png" alt="Seta Baixo"></a>
+      </div>
+      <div id="point2" class="contexto" data-aos="fade-out" data-aos-duration="8000">
+        <span class="titulo_historia">1960 - O contexto histórico </span><br><br>
+      </div>
+      <div class="div_mae" data-aos="fade-out" data-aos-duration="1500">
+        <div class="contexto">
+          Por conta do contexto histórico em que o gênero surgiu, a MPB foi marcada por um forte engajamento político e
+          social, refletindo a efervescência cultural e as lutas da época. A música se tornou uma forma de expressão e
+          resistência, retratando as contradições e desigualdades do país.</div>
+        <div class="foto_protesto"><img src="./assets/imagem_protesto.jpg" alt=""> </div>
+      </div>
+      <div class="seta-baixo">
+        <a href="#point3"><img src="./assets/icon/setaBaixo.png" alt="Seta Baixo"></a>
+      </div>
+
+
+      <div id="point3" class="evolucao" data-aos="fade-out" data-aos-duration="8000">
+        <span class="titulo_historia">1960 - O contexto histórico </span><br><br>
+      </div>
+
+      <div class="div_mae" data-aos="fade-out" data-aos-duration="1500">
+        <div class="evolucao">
+          Por conta do contexto histórico em que o gênero surgiu, a MPB foi marcada por um forte Na década de 70, 80
+          surgiram novos artistas que misturavam diversos estilos, como a música regional, o rock e o jazz. Artistas
+          como Gilberto Gil, Caetano Veloso e Chico Buarque continuaram a produzir músicas de grande sucesso, enquanto
+          novos talentos como Tim Maia, Raul Seixas e Rita Lee começaram a lançar seus primeiros álbuns.</div>
+        <div class="foto_evolucao"><img src="./assets/imagem_protesto.jpg" alt=""> </div>
+      </div>
+      <div class="seta-baixo">
+        <a href="#"><img src="./assets/icon/setaBaixo.png" alt="Seta Baixo"></a>
       </div>
     </div>
   </div>
+  <!-- <section>
+
+  <div id="albuns">
+      <div class="container_albuns">
+          <h1 class="h1_sessao3">Álbuns Recomendados</h1>
+      </div>
+      <div class="slider">
+          <div class="slide-track">
+            <div class="slide">
+              <img src="https://i.scdn.co/image/ab67616d00001e0284243a01af3c77b56fe01ab1" alt="" /><br>
+              <span class="nome-musica">Let It Be</span><br>
+              <span class="artista">The Beatles</span>
+            </div>
+            <div class="slide">
+              <img src="https://i.discogs.com/IfL7kVomBeMdjWMHmANuLkZb6qcZ-0WjIus4d6Dn8do/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIwODg2/NDYtMTQzNjQ1NjU1/MC0yNzM4LmpwZWc.jpeg" alt="" /><br>
+              <span class="nome-musica">ABC</span><br>
+              <span class="artista">The Jackson 5</span>
+            </div>
+            <div class="slide">
+              <img src="https://i.scdn.co/image/ab67616d00001e02e8b066f70c206551210d902b" alt="" /><br>
+              <span class="nome-musica">Bohemian Rhapsody:</span><br>
+              <span class="artista">Queen</span>
+            </div>
+            <div class="slide">
+              <img src="https://i.scdn.co/image/ab67616d00001e0252f532df7ba3269b0242fed9" alt="" /><br>
+              <span class="nome-musica">She's So Unusual</span><br>
+              <span class="artista">Cyndi Lauper</span>
+            </div>
+            <div class="slide">
+              <img src="https://i.scdn.co/image/ab67616d00001e02df1ad76d06fe7f07e70b164a" alt="" /><br>
+              <span class="nome-musica">Voo de Coração</span><br>
+              <span class="artista">Ritchie</span>
+            </div>
+            <div class="slide">
+              <img src="https://i.scdn.co/image/ab67616d00001e024384b6976cadaec272114022" alt="" /><br>
+              <span class="nome-musica">Dynasty</span><br>
+              <span class="artista">Kiss</span>
+            </div>
+            <div class="slide">
+              <img src="https://m.media-amazon.com/images/I/61epkYq75pL._AC_SX679_.jpg" alt="" /><br>
+              <span class="nome-musica">Disintegration</span><br>
+              <span class="artista">The Cure</span>
+            </div>
+            <div class="slide">
+              <img src="https://m.media-amazon.com/images/I/812FS2R2v6L._AC_SY355_.jpg" alt="" /><br>
+              <span class="nome-musica">Unknown Pleasures</span><br>
+              <span class="artista">Joy Division</span>
+            </div>
+            <div class="slide">
+              <img src="https://m.media-amazon.com/images/I/61dzD+VRrdL._AC_SL1400_.jpg" alt="" /><br>
+              <span class="nome-musica">Seventeen Seconds</span><br>
+              <span class="artista">The Cure</span>
+            </div>
+            <div class="slide">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_940851-MLB26514676081_122017-O.jpg" alt="" /><br>
+              <span class="nome-musica">The Dark Side of The Moon</span><br>
+              <span class="artista">Pink Floyd</span>
+            </div>
+            <div class="slide">
+              <img src="https://nonossoquintal.com.br/loja/wp-content/uploads/2021/06/1-Os-Mutantes-1968.jpg" alt="" /><br>
+              <span class="nome-musica">Os Mutantes</span><br>
+              <span class="artista">Os Mutantes</span>
+            </div>
+            <div class="slide">
+              <img src="https://cdn.awsli.com.br/600x450/2279/2279925/produto/208918906/mutantes-mutantes-e-seus-cometas-no-pais-do-baurets-ktagmm.jpg" alt="" /><br>
+              <span class="nome-musica">Mutantes e Seus Cometas no País do Baurets</span><br>
+              <span class="artista">Os Mutantes</span>
+            </div>
+          </div>
+        </div>
+  </div>
+</section>  -->
+<footer id="footer">
+  <div class="containerFooter">
+    <div class="div_menu_contato">
+      <div class="menuFooter">
+        <h4>Menu</h4>
+        <ul class="listMenuFooter">
+          <li><a href="#">Início</a></li>
+          <li><a href="#point1">História da Música</a></li>
+          <li><a href="#albuns">Álbuns</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+        </ul>
+      </div>
+      <div class="contatoFooter">
+        <h4>Contato</h4>
+        <img src="./assets/icon/telefone.png" class="icon_contato" alt="icone do telefone" width="25px">
+        <span>(11) 98772-8651</span><br><br>
+        <img src="./assets/icon/gmail.png" class="icon_contato" alt="icone do email" width="20px">
+        <span>guilherme.quadros@sptech.school</span><br>
+        <h4>Redes Sociais</h4>
+        <a href="https://www.instagram.com/gui_scarabelli/" target="_blank"><img src="./assets/icon/instagram.png"
+            class="icon_rede_social" alt="icone do instagram" width="33px"></a>
+        <a href="https://www.linkedin.com/in/guilherme-scarabelli-69b7211b4/" target="_blank"><img src="./assets/icon/linkedin.png"
+            class="icon_rede_social" alt="icone do linkedin" width="30px"></a>
+        <a href="https://github.com/GuiScarabelli" target="_blank"><img src="./assets/icon/github.png"
+            class="icon_rede_social" alt="icone do github" width="30px"></a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 
-  <div id="point1" class="como_surgiu" data-aos="fade-out" data-aos-duration="2000"> 
-  <span class="titulo_historia">1960 - O inicio de uma historia </span><br><br>
-</div>
-  
-  <div class="mae" data-aos="fade-up" data-aos-duration="1500">
-    <div class="como_surgiu">
-      A MPB (Música Popular Brasileira), surgiu na década de 60, durante a Ditadura Militar no Brasil. Como uma espécie
-      de sucessão à Bossa Nova, a MPB misturou os ritmos desse gênero musical com os movimentos musicais dos Centros
-      Populares de Cultura da União Nacional dos Estudantes. Nessa época, artistas como Chico Buarque, Tom Jobim,
-      Caetano Veloso, Gilberto Gil, João Gilberto e Elis Regina ganharam destaque e se tornaram referências da MPB.</div>
-    <div class="foto_foda"><img src="./assets/doces-barbaros.jpeg" alt="">    </div>
-</div>
-
-<div id="point2" class="como_surgiu" data-aos="fade-up" data-aos-duration="8000"> 
-  <span class="titulo_historia">1960 -  O contexto histórico </span><br><br>
-</div>
-  
-  <div class="mae" data-aos="fade-out" data-aos-duration="1500">
-    <div class="como_surgiu">
-      Por conta do contexto histórico em que o gênero surgiu, a MPB foi marcada por um forte engajamento político e social, refletindo a efervescência cultural e as lutas da época. A música se tornou uma forma de expressão e resistência, retratando as contradições e desigualdades do país.</div>
-    <div class="foto_foda"><img src="./assets/imagem_protesto.jpg" alt="">    </div>
-</div>
-
-<div id="point2" class="como_surgiu" data-aos="fade-up" data-aos-duration="8000"> 
-  <span class="titulo_historia">1960 -  O contexto histórico </span><br><br>
-</div>
-  
-  <div class="mae" data-aos="fade-out" data-aos-duration="1500">
-    <div class="como_surgiu">
-      Por conta do contexto histórico em que o gênero surgiu, a MPB foi marcada por um forte Na década de 70, 80 surgiram novos artistas que misturavam diversos estilos, como a música regional, o rock e o jazz. Artistas como Gilberto Gil, Caetano Veloso e Chico Buarque continuaram a produzir músicas de grande sucesso, enquanto 
-      novos talentos como Tim Maia,  Raul Seixas e Rita Lee começaram a lançar seus primeiros álbuns.</div>
-    <div class="foto_foda"><img src="./assets/imagem_protesto.jpg" alt="">    </div>
+<!-- Modal de login -->
+<div id="popupLogin">
+  <div class="popupCadastro-header">
+    <h2>Login</h2>
+    <button id="close-modal" onclick="loginModal()"><img src="./assets/icon/X.png" alt=""></button>
+  </div>
+  <div class="modal-body">
+    <div class="campo">
+      <span class="input">E-mail:</span>
+      <input id="email_input_login" type="text" placeholder="Login">
+    </div>
+    <div class="campo">
+      <span class="input">Senha:</span>
+      <input id="senha_input_login" type="password" placeholder="******">
+    </div>
+    <button class="botao" onclick="entrar()">Entrar</button>
+  </div>
 </div>
 
 
+<div id="popupCadastro">
+  <div class="popupCadastro-header">
+    <h2>Cadastre-se</h2>
+    <button id="close-modal" onclick="toggle()"><img src="./assets/icon/X.png" alt=""></button>
+  </div>
+  <div class="modal-body">
+    <div class="campo">
+      <span class="input">Nome:</span>
+      <input id="nome_input" type="text" placeholder="Seu nome">
+    </div>
+    <div class="campo">
+      <span class="input">Email</span>
+      <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+    </div>
+    <div class="campo">
+      <span class="input">Senha</span>
+      <input id="senha_input" type="password" placeholder="******">
+    </div>
+    <div class="campo">
+      <span class="input">Confirme a senha</span>
+      <input id="confirmacao_senha_input" type="password" placeholder="******">
+    </div>
+    <button class="botao" onclick="cadastrar()">Cadastrar</button>
+  </div>
+</div>
 
 
 
 </body>
-
 </html>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="dist/aos.js"></script>
+
 <script>
   AOS.init({
   });
-
-
 </script>
