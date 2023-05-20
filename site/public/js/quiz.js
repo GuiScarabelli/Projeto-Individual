@@ -6,13 +6,23 @@ const questions = [
         {text: "Lobo pidão", correct: false},
         {text: "Blue pen (caneta azul)", correct: false},
         {text: "Galo cego", correct: true},
+      ],
+    },
+    {
+      question: "Quem foi a primeirar pessoa a pisar no Brasil?",
+      answers: [
+        {text: "Pelé", correct: false},
+        {text: "Adão e Eva", correct: false},
+        {text: "Pedro Alvares Cabral", correct: false},
+        {text: "O Abraão", correct: true},
       ]
     }
   ];
-  
+  const quizBody = document.getElementById("quiz-body")
   const questionElement = document.getElementById("question")
   const answerButton = document.getElementById("answer-buttons")
   const nextButton = document.getElementById("next-btn")
+  const chart = document.getElementById("chart_ranking")
   
   let currentQuestionIndex = 0
   let  score = 0
@@ -43,7 +53,10 @@ const questions = [
   }
   
   function resetState(){
+    
     nextButton.style.display = "none"
+    
+
     while(answerButton.firstChild){
       answerButton.removeChild(answerButton.firstChild)
     }
@@ -70,9 +83,9 @@ const questions = [
   
   function showScore(){
     resetState()
-    questionElement.innerHTML = `Sua pontuação foi ${score} out of ${questions.length}!`
-    nextButton.innerHTML = `Play again`;
-    nextButton.style.display = "block"
+    quizBody.style.display = "block"
+    questionElement.style.display = "none"
+    chart.style.display = "block"
   }
   
   function handleNextButton() {
@@ -94,3 +107,24 @@ const questions = [
   })
   
   startQuiz();
+
+
+  const ctx = document.getElementById('myChart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });

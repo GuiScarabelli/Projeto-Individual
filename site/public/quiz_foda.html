@@ -4,13 +4,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="./css/quiz.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <body>
   <div class="app">
     <h1>quiz</h1>
-    <div class="quiz-body">
+    <div id="quiz-body">
+        <div id="chart_ranking" style="display: none;">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
       <h2 id="question"> A questão vai aqui</h2>
       <div id="answer-buttons">
         <button class="btn">opção1</button>
