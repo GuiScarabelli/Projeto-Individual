@@ -109,22 +109,97 @@ const questions = [
   startQuiz();
 
 
-  const ctx = document.getElementById('myChart');
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+
+  // SCRIPT CHARTJS
+  // const ctx = document.getElementById('myChart');
+  // new Chart(ctx, {
+  //   type: 'bar',
+  //   data: {
+  //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  //     datasets: [{
+  //       label: '# of Votes',
+  //       data: [12, 19, 3, 5, 2, 3],
+  //       borderWidth: 1
+  //     }]
+  //   },
+  //   options: {
+  //     scales: {
+  //       y: {
+  //         beginAtZero: true
+  //       }
+  //     }
+  //   }
+  // });
+
+
+
+
+
+  window.onload = obterDadosGraficos();
+
+  function obterDadosGraficos() {
+      obterDadosGrafico(1)
+  }
+
+
+  function obterDadosGrafico(idUsuario) {
+
+    fetch(`/usuarios/listar/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+                 plotarGrafico(resposta, idUsuario);
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
         }
-      }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+// A função *plotarGrafico* também invoca a função *atualizarGrafico*
+function plotarGrafico(resposta, idUsuario) {
+
+    console.log('iniciando plotagem do gráfico...');
+
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [];
+
+    // Criando estrutura para plotar gráfico - dados
+
+    const ctxGraficoBarra = document.getElementById("myChart");
+    let dados = {
+        labels: labels,
+        datasets: [{   
+        label: "Nome",
+        data: [],
+        backgroundColor: "rgba(255, 69, 1, 0.7)",
+        },
+        {
+            label: 'Pontos',
+            data: [],
+            fill: false,
+            borderColor: 'rgb(199, 52, 52)',
+            backgroundColor: "rgba(255, 69, 1, 0.7)",
+            tension: 0.1
+        }]
+    };
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (i = 0; i < resposta.length; i++) {
+        var registro = resposta[i];
+        labels.push(registro.nome);
+        dados.datasets[0].data.push(registro.nome);
+        dados.datasets[1].data.push(registro.pontos);
     }
-  });
+
+    // Adicionando gráfico criado em div na tela
+    var chartBarra = new Chart(ctxGraficoBarra, {
+    type: "bar",
+    data: dados,
+    });
+}

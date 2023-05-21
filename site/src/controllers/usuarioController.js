@@ -24,6 +24,23 @@ function listar(req, res) {
         );
 }
 
+function listarId(req, res) {
+    usuarioModel.listarId()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -98,5 +115,6 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
+    listarId,
     testar
 }
