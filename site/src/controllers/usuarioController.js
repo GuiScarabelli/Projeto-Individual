@@ -24,8 +24,8 @@ function listar(req, res) {
         );
 }
 
-function listarId(req, res) {
-    usuarioModel.listarId()
+function listarPlacar(req, res) {
+    usuarioModel.listarPlacar()
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -111,10 +111,38 @@ function cadastrar(req, res) {
     }
 }
 
+
+
+function jogar(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var idUsuario = req.body.idUsuario;
+    var pontos = req.body.pontos;
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.jogar(idUsuario, pontos)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+
+
 module.exports = {
     entrar,
     cadastrar,
+    jogar,
     listar,
-    listarId,
+    listarPlacar,
     testar
 }

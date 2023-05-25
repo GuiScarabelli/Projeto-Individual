@@ -13,6 +13,21 @@ html{
     transition: scroll-behavior 0.5s;
 } 
 
+.btnEntrar {
+  font-family: 'Montserrat',sans-serif;
+  font-size: 24px;
+  color:rgb(0, 0, 0);
+  font-weight: 400;
+  border: 2px solid #fff;
+  padding: 10px 30px ;
+  text-decoration: none;
+  border-radius: 5px ;
+  letter-spacing: 2px;
+  background-color: white;
+  margin-left: 20px;
+}
+
+
 .container{
     background-color: #D8F3DC;
     backdrop-filter: opacity(0.2);
@@ -199,6 +214,11 @@ html{
   transition: 0.5s;
 }
 
+.registro{
+  margin-top: 15px;
+  margin-right: -60px;
+}
+
 #popupLogin.active{
   visibility: visible;
   opacity: 11;
@@ -369,7 +389,7 @@ h2{
 
 
 
-/* Carrossel
+/* Carrossel */
 .slider::before,
 .slider::after {
   content: "";
@@ -414,6 +434,15 @@ h2{
   }
 }
 
+.container_albuns{
+  text-align: center;
+}
+
+
+#albuns{
+  margin-top: 10px;
+}
+
 .slide img {
   width: 80%;
   aspect-ratio: 1;
@@ -421,8 +450,8 @@ h2{
 
 .slide span {
   color: #e1e1e1;
-  font-family: 'Montserrat';
-  align-self: flex-start;
+  font-family: 'Poppins', sans-serif;
+  align-self: initial;
 }
 
 .slide > .nome-musica {
@@ -443,7 +472,7 @@ h2{
   position: relative;
   width: 100%;
 
-} */
+} 
 
 
 #footer{

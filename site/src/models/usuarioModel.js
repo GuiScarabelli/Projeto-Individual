@@ -10,10 +10,10 @@ function listar() {
 }
 
 
-function listarId() {
+function listarPlacar() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
-        SELECT nome, pontos FROM usuario;
+    select nome, pontuacao from tentativa join usuario on fkusuario = id limit 5;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -32,8 +32,6 @@ function entrar(email, senha) {
 function cadastrar(nome, email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
     
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
     var instrucao = `
         INSERT INTO usuario (nome, email, senha) VALUES ('${nome}', '${email}', '${senha}');
     `;
@@ -41,9 +39,21 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucao);
 }
 
+
+function jogar(idUsuario, pontos) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():");
+    var instrucao = `
+        INSERT INTO tentativa VALUES (NULL, ${pontos}, '${idUsuario}');
+    `
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
 module.exports = {
     entrar,
     cadastrar,
+    jogar,
     listar,
-    listarId,
+    listarPlacar,
 };

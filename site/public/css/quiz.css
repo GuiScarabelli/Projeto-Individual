@@ -62,7 +62,7 @@ body{
   margin: 20px auto 0;
   border-radius: 4px;
   cursor: pointer;
-  display: none;
+  /* display: none; */
 }
 
 .correct{
@@ -71,4 +71,40 @@ body{
 
 .incorrect{
   background: #ff9393;
+}
+
+#answer-buttons{
+  /* display: none; */
+}
+
+#question{
+  /* display: none; */
+}
+
+#resultado{
+  display: none;
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+.ranking{
+  text-align: center;
+  margin-top: 20px;
+  display: block;
 }

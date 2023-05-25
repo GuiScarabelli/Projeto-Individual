@@ -8,8 +8,6 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/style_error.css">
   <script src="./js/funcoes.js"></script>
-  <script src="./js/funcoes_cadastro.js"></script>
-  <script src="./js/funcao_login.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 </head>
@@ -27,20 +25,24 @@
           </span>
           <ul class="item">
             <li>
-              <a href="#point1" class="btn_redirect">o que é o MPB?</a>
+              <a href="#point1" class="btn_redirect">Entrar</a>
             </li>
             <li>
-              <a href="#" class="btn_redirect" onclick="loginModal()">Login</a>
+              <a href="#" class="btn_redirect" id="entrar" onclick="loginModal()">dd</a>
             </li>
             <li>
-              <a href="#" class="btn_redirect" onclick="toggle()"> Cadastro</a>
+              <a href="./quiz_foda.html" class="btn_redirect" id="entrar">quiz</a>
+            </li> 
+            <li>
+              <a href="#" class="btn_redirect" id="entrar" onclick="loginModal()">dd</a>
             </li>
             <li>
-              <a href="./quiz_foda.html" class="btn_redirect"> quiz</a>
+              <button id="btnEntrar" onclick="limparSessao()">Entrar</button>
             </li>
           </ul>
         </div>
 
+        <div id="foda"></div>
 
         <h1>
           <p class="texto_foto">
@@ -103,82 +105,76 @@
         <div class="foto_evolucao"><img src="./assets/imagem_protesto.jpg" alt=""> </div>
       </div>
       <div class="seta-baixo">
-        <a href="#"><img src="./assets/icon/setaBaixo.png" alt="Seta Baixo"></a>
+        <a href="#container_albuns"><img src="./assets/icon/setaBaixo.png" alt="Seta Baixo"></a>
       </div>
     </div>
   </div>
-  <!-- <section>
-
-  <div id="albuns">
-      <div class="container_albuns">
-          <h1 class="h1_sessao3">Álbuns Recomendados</h1>
+  <section id="albuns">
+  <div style="margin-top:10px;">
+      <div class="container_albuns" id="container_albuns">
+          <h1 class="h1_sessao3">Hits da época</h1>
       </div>
       <div class="slider">
           <div class="slide-track">
             <div class="slide">
-              <img src="https://i.scdn.co/image/ab67616d00001e0284243a01af3c77b56fe01ab1" alt="" /><br>
-              <span class="nome-musica">Let It Be</span><br>
-              <span class="artista">The Beatles</span>
+              <img src="https://i.scdn.co/image/ab67616d0000b2733faf680c98eed3f0a6ecb61d" alt="" /><br>
+              <span class="nome-musica">Do leme ao Pontal</span><br>
+              <span class="artista">Tim Maia</span>
             </div>
             <div class="slide">
-              <img src="https://i.discogs.com/IfL7kVomBeMdjWMHmANuLkZb6qcZ-0WjIus4d6Dn8do/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIwODg2/NDYtMTQzNjQ1NjU1/MC0yNzM4LmpwZWc.jpeg" alt="" /><br>
-              <span class="nome-musica">ABC</span><br>
-              <span class="artista">The Jackson 5</span>
+              <img src="https://jovemnerd.com.br/wp-content/uploads/2021/10/Chico-Buarque-de-Hollanda-capa-completa-760x741.png" alt="" /><br>
+              <span class="nome-musica">Chico Buarque de Hollanda</span><br>
+              <span class="artista">Chico Buarque</span>
             </div>
             <div class="slide">
-              <img src="https://i.scdn.co/image/ab67616d00001e02e8b066f70c206551210d902b" alt="" /><br>
-              <span class="nome-musica">Bohemian Rhapsody:</span><br>
-              <span class="artista">Queen</span>
+              <img src="https://images.tcdn.com.br/img/img_prod/817363/cd_tom_jobim_tom_jobim_inedito_847_1_eb95875ecea0489d0828bce9e86392a7.png" alt="" /><br>
+              <span class="nome-musica">Tom Jobim Inédito</span><br>
+              <span class="artista">Tom Jobim</span>
             </div>
             <div class="slide">
-              <img src="https://i.scdn.co/image/ab67616d00001e0252f532df7ba3269b0242fed9" alt="" /><br>
-              <span class="nome-musica">She's So Unusual</span><br>
-              <span class="artista">Cyndi Lauper</span>
+              <img src="https://m.leiaja.com/sites/default/files/field/image/lazer/2019/cartola.jpg" alt="" /><br>
+              <span class="nome-musica">Cartola (1976)</span><br>
+              <span class="artista">Cartola</span>
             </div>
             <div class="slide">
-              <img src="https://i.scdn.co/image/ab67616d00001e02df1ad76d06fe7f07e70b164a" alt="" /><br>
-              <span class="nome-musica">Voo de Coração</span><br>
-              <span class="artista">Ritchie</span>
+              <img src="https://s2.glbimg.com/jQ5M31peGArVDANqcMzhoLbTMD4=/620x620/smart/e.glbimg.com/og/ed/f/original/2017/08/07/402-amp-caetano_logo.jpg" alt="" /><br>
+              <span class="nome-musica">Tropicália</span><br>
+              <span class="artista">Caetano Veloso</span>
             </div>
             <div class="slide">
-              <img src="https://i.scdn.co/image/ab67616d00001e024384b6976cadaec272114022" alt="" /><br>
-              <span class="nome-musica">Dynasty</span><br>
-              <span class="artista">Kiss</span>
+              <img src="https://s2-g1.glbimg.com/ZoORBEQBVE9s9o1Qq2scIJVga0c=/0x0:1500x1500/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2023/a/F/wToBABQmAwaRXpux9fnw/raulkrigcapa.jpg" alt="" /><br>
+              <span class="nome-musica">Krig-ha, bandolo!</span><br>
+              <span class="artista">Raul Seixas</span>
             </div>
             <div class="slide">
-              <img src="https://m.media-amazon.com/images/I/61epkYq75pL._AC_SX679_.jpg" alt="" /><br>
-              <span class="nome-musica">Disintegration</span><br>
-              <span class="artista">The Cure</span>
+              <img src="https://upload.wikimedia.org/wikipedia/pt/1/12/Rita_Lee_1979.jpg" alt="" /><br>
+              <span class="nome-musica">Mania de Você</span><br>
+              <span class="artista">Rita Lee</span>
             </div>
             <div class="slide">
-              <img src="https://m.media-amazon.com/images/I/812FS2R2v6L._AC_SY355_.jpg" alt="" /><br>
-              <span class="nome-musica">Unknown Pleasures</span><br>
-              <span class="artista">Joy Division</span>
+              <img src="https://amusicade.com/wp-content/uploads/2021/12/refavela.png" alt="" /><br>
+              <span class="nome-musica">Refavela</span><br>
+              <span class="artista">Gilberto Gil</span>
             </div>
             <div class="slide">
-              <img src="https://m.media-amazon.com/images/I/61dzD+VRrdL._AC_SL1400_.jpg" alt="" /><br>
-              <span class="nome-musica">Seventeen Seconds</span><br>
-              <span class="artista">The Cure</span>
+              <img src="https://portalcbncampinas.com.br/wp-content/uploads/2021/07/portalcbncampinas.com.br-elis-ela.jpg" alt="" /><br>
+              <span class="nome-musica">Ela</span><br>
+              <span class="artista">Elis Regina</span>
             </div>
             <div class="slide">
-              <img src="https://http2.mlstatic.com/D_NQ_NP_940851-MLB26514676081_122017-O.jpg" alt="" /><br>
-              <span class="nome-musica">The Dark Side of The Moon</span><br>
-              <span class="artista">Pink Floyd</span>
+              <img src="https://i.scdn.co/image/ab67616d0000b273bf96aed03a1e378dad91217b" alt="" /><br>
+              <span class="nome-musica">O Descobridor dos Sete Mares</span><br>
+              <span class="artista">Tim Maia</span>
             </div>
             <div class="slide">
-              <img src="https://nonossoquintal.com.br/loja/wp-content/uploads/2021/06/1-Os-Mutantes-1968.jpg" alt="" /><br>
-              <span class="nome-musica">Os Mutantes</span><br>
-              <span class="artista">Os Mutantes</span>
-            </div>
-            <div class="slide">
-              <img src="https://cdn.awsli.com.br/600x450/2279/2279925/produto/208918906/mutantes-mutantes-e-seus-cometas-no-pais-do-baurets-ktagmm.jpg" alt="" /><br>
-              <span class="nome-musica">Mutantes e Seus Cometas no País do Baurets</span><br>
-              <span class="artista">Os Mutantes</span>
+              <img src="https://lastfm.freetls.fastly.net/i/u/500x500/316b96fa030f4801b56f58ff992c38aa.jpg" alt="" /><br>
+              <span class="nome-musica">Exagerado</span><br>
+              <span class="artista">Cazuza</span>
             </div>
           </div>
         </div>
   </div>
-</section>  -->
+</section> 
 <footer id="footer">
   <div class="containerFooter">
     <div class="div_menu_contato">
@@ -226,6 +222,7 @@
       <input id="senha_input_login" type="password" placeholder="******">
     </div>
     <button class="botao" onclick="entrar()">Entrar</button>
+    <span class="registro">Não está cadastrado ainda? Se registre <a onclick="toggle()">aqui</a></span>
   </div>
 </div>
 

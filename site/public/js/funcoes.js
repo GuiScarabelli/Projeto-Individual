@@ -1,25 +1,20 @@
 // sessão
+var email = sessionStorage.getItem('email');
+var nome = sessionStorage.getItem('nome');
+var id = sessionStorage.getItem('id');
+
+
 function validarSessao() {
-    // aguardar();
-
-    var email = sessionStorage.EMAIL_USUARIO;
-    var idUsuario = sessionStorage.ID_USUARIO;
-    var nome = sessionStorage.NOME_USUARIO;
-    var senha = sessionStorage.SENHA_USUARIO;
-
-    var b_usuario = document.getElementById("b_usuario");
-
-    if (email != null && nome != null) {
-         window.alert(`Seja bem-vindo, ${nome}! \n
-                        sua senha é ${senha}`);
-        b_usuario.innerHTML = nome;
-        b_usuario.innerHTML = senha;
-
-        // finalizarAguardar();
-    } else {
-        window.location = "../login.html";
+  const btnEntrar = document.querySelector('#btn-entrar')
+    if (id == undefined) {
+        alert('saido')
+    }else{
+        btnEntrar.style.opacity = 0
+        btnEntrar.addEventListener('click', ()=>{
+          window.location.href = './login.html'
+        })
     }
-}
+} 
 
 
 function toggle(){
@@ -42,38 +37,216 @@ function loginModal(){
 
 
 function limparSessao() {
-     aguardar();
     sessionStorage.clear();
-     finalizarAguardar();
-    window.location = "../login.html";
+    window.location = "./index.html";
 }
 
-// carregamento (loading)
-// function aguardar() {
-//     var divAguardar = document.getElementById("div_aguardar");
-//     divAguardar.style.display = "flex";
-// }
+validarSessao()
 
-// function finalizarAguardar(texto) {
-//     var divAguardar = document.getElementById("div_aguardar");
-//     divAguardar.style.display = "none";
+// FUNÇÃO ENTRAR
+function entrar() {
+    var email = email_input_login.value;
+    var senha = senha_input_login.value;
 
-//     var divErrosLogin = document.getElementById("div_erros_login");
-//     if (texto) {
-//         divErrosLogin.style.display = "flex";
-//         divErrosLogin.innerHTML = texto;
-//     }
-// }
+    const div_aviso = document.querySelector('.aviso')
+    const resposta_aviso = document.querySelector('.resposta-cadastro')
 
+    // Verificação se os campos estão preenchidos
+    if (email == "" || senha == "") {
+        
+        div_aviso.style.opacity = '1'
+        resposta_aviso.style.color = 'black'
+        resposta_aviso.innerHTML = 'Insira todos os campos!'
+        setTimeout(() => {
+          div_aviso.style.opacity = '0'
+        }, 3500)
+        return false;
+    } else {
+        
+        fetch("/usuarios/autenticar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            emailServer: email,
+            senhaServer: senha
+          })
+      }).then(function (resposta) {
+          if (resposta.ok) {
+            console.log(resposta);
 
-// modal
-function mostrarModal() {
-    var divModal = document.getElementById("div_modal");
-    divModal.style.display = "flex";
+            resposta.json().then(json => {
+              console.log(JSON.stringify(json));
+
+              sessionStorage.setItem('email',json.email)
+              sessionStorage.setItem('nome',json.nome)
+              sessionStorage.setItem('id',json.id)
+              
+
+              div_aviso.style.opacity = '1'
+              resposta_aviso.style.color = 'black'
+              div_aviso.style.backgroundColor = '#caf5b3'
+              resposta_aviso.style.backgroundColor = '#caf5b3'
+              resposta_aviso.innerHTML = 'Login realizado com sucesso!'
+              setTimeout(() => {
+              div_aviso.style.opacity = '0'
+            }, 3000)
+
+            setTimeout(() =>{
+              window.location.href = '../index.html'
+             },1500)
+      
+          });
+
+        } else {
+            div_aviso.style.opacity = '1'
+            resposta_aviso.style.color = 'black'
+            div_aviso.style.backgroundColor = '#fc9999'
+            resposta_aviso.style.backgroundColor = '#fc9999'
+            resposta_aviso.innerHTML = 'Usuario não encontrado, tente novamente'
+            setTimeout(() => {
+              div_aviso.style.opacity = '0'
+            }, 3000)
+
+            console.log("Houve um erro ao tentar realizar o login!");
+            resposta.text().then(texto => {
+              cardErro.style.display = "block"
+              mensagem_erro.innerHTML = `${texto}`;
+            });
+        }
+
+      }).catch(function (erro) {
+        console.log(erro);
+      })
+    }
 }
 
-function fecharModal() {
-    var divModal = document.getElementById("div_modal");
-    divModal.style.display = "none";
+// FUNÇÃO CADASTRAR
+function cadastrar() {
+    const div_aviso = document.querySelector('.aviso')
+    const resposta_aviso = document.querySelector('.resposta-cadastro')
+
+    var nomeVar = nome_input.value
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+
+    if (nomeVar == "" || emailVar == "" || senhaVar == "") {
+        div_aviso.style.opacity = '1'
+        resposta_aviso.style.color = 'black'
+        div_aviso.style.backgroundColor = '#fc9999'
+        resposta_aviso.style.backgroundColor = '#fc9999'
+        resposta_aviso.innerHTML = 'Insira todos os campos!'
+        setTimeout(()=>{
+            div_aviso.style.opacity = '0'
+        },3000)
+        return false;
+    }
+    else {
+        //  alert('Deu erro')
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+        if (resposta.ok) {
+            console.log('OK')
+            return resposta.json()
+         } else {
+            div_aviso.style.opacity = '1'
+            resposta_aviso.style.color = 'black'
+            div_aviso.style.backgroundColor = '#fc9999'
+            resposta_aviso.style.backgroundColor = '#fc9999'
+            resposta_aviso.innerHTML = 'Insira todos os campos!'
+                setTimeout(()=>{
+                 div_aviso.style.opacity = '0'
+             },5000)
+             throw ("Houve um erro ao tentar realizar o cadastro!");
+         }
+
+
+        }).then((dados)=>{
+            sessionStorage.setItem('idUsuario', dados.idUsuario)
+            sessionStorage.setItem('username', dados.username)
+            sessionStorage.setItem('email', dados.email)
+            div_aviso.style.opacity = '1'
+            resposta_aviso.style.color = 'black'
+            div_aviso.style.backgroundColor = '#caf5b3'
+            resposta_aviso.style.backgroundColor = '#caf5b3'
+            resposta_aviso.innerHTML = 'Cadastro realizado com sucesso!'
+    
+           setTimeout(() =>{
+            window.location.href = '/index.html'
+           },1500)
+    
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    return false;
+}
+
+
+
+// Cadastrar jogada
+function jogar() {
+    const div_aviso = document.querySelector('.aviso')
+    const resposta_aviso = document.querySelector('.resposta-cadastro')
+
+    var idUsuario = id
+    var nome = nome
+    var pontos = sessionStorage.getItem('pontos')
+
+    
+    if (nomeVar == "" || emailVar == "" || senhaVar == "") {
+        div_aviso.style.opacity = '1'
+        resposta_aviso.style.color = 'black'
+        div_aviso.style.backgroundColor = '#fc9999'
+        resposta_aviso.style.backgroundColor = '#fc9999'
+        resposta_aviso.innerHTML = 'Insira todos os campos!'
+        setTimeout(()=>{
+            div_aviso.style.opacity = '0'
+        },3000)
+        return false;
+    }
+    else {
+        //  alert('Deu erro')
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/jogar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nomeUsuario: nome,
+            idUsuario: idUsuario,
+            pontos: pontos
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+        if (resposta.ok) {
+            console.log('OK')   
+            console.log(resposta)
+         } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+         }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    return false;
 }
 
