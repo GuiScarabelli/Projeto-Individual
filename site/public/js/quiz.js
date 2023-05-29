@@ -7,25 +7,37 @@ const questions = [
         {text: "Blue pen (caneta azul)", correct: false},
         {text: "Galo cego", correct: true},
       ],
+    },
+    {
+      question: "Questão especial",
+      answers: [
+        {text: "Voce", correct: false},
+        {text: "Do leme ao pontal", correct: false},
+        {text: "Faroeste Caboclo", correct: false},
+        {text: "DJ Arana", correct: true},
+      ],
+    },
+    {
+      question: "Quem foi a primeirar pessoa a pisar no Brasil?",
+      answers: [
+        {text: "Pelé", correct: false},
+        {text: "Adão e Eva", correct: false},
+        {text: "Pedro Alvares Cabral", correct: false},
+        {text: "O Abraão", correct: true},
+      ]
     }
-    // {
-    //   question: "Quem foi a primeirar pessoa a pisar no Brasil?",
-    //   answers: [
-    //     {text: "Pelé", correct: false},
-    //     {text: "Adão e Eva", correct: false},
-    //     {text: "Pedro Alvares Cabral", correct: false},
-    //     {text: "O Abraão", correct: true},
-    //   ]
-    // }
   ];
+
 
   const quizBody = document.getElementById("quiz-body")
   const questionElement = document.getElementById("question")
+  const questionNoo= document.getElementById("questionNo")
   const answerButton = document.getElementById("answer-buttons")
-  const nextButton = document.getElementById("next-btn")
-  const resultado = document.getElementById("resultado")
-  const registros = document.getElementById("registros")
+  const nextButton = document.querySelector(".next-btn")
+  const tituloResultado = document.getElementById("tituloResultado")
   var nomeSessao = sessionStorage.getItem('nome')
+
+  tituloResultado.style.display = "none"
 
 
 
@@ -52,6 +64,12 @@ const questions = [
       if(answer.correct){
         button.dataset.correct = answer.correct
       }
+
+      if(currentQuestion == questions[1]){
+        tituloResultado.style.color = "red"
+        tituloResultado.style.display = "block"
+      }
+
       button.addEventListener("click", selectAnswer);
     });
   }
@@ -85,9 +103,9 @@ const questions = [
   function showScore(){
     resetState()
     sessionStorage.setItem('pontos', score)
-    quizBody.style.display = "block"
-    questionElement.style.display = "none"
-    resultado.style.display = "block"
+    setTimeout(() =>{
+      window.location.href = '../resultado.html'
+     },0)
   }
   
   function handleNextButton() {
@@ -122,38 +140,3 @@ const questions = [
   })
   
   startQuiz();
-
-  window.onload = obterDados();
-
-  function obterDados() {
-      obterDados(1)
-  }
-
-  function obterDados() {
-    fetch(`/usuarios/listarPlacar`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (resposta) {
-                 exibirDados(resposta);
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-        }
-    })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
-}
-
-function exibirDados(resposta) {
-
-    for (i = 0; i < resposta.length; i++) {
-        var registro = resposta[i];
-        var nome = resposta[i].nome
-        var pontos = registro.pontuacao
-        
-
-        registros.innerHTML += `<tr><td>${nome}</td><td>${pontos}</td></tr>`
-        console.log(pontos)
-      }
-}
-

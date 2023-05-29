@@ -25,9 +25,18 @@ function listar(req, res) {
 }
 
 function listarPlacar(req, res) {
-    usuarioModel.listarPlacar()
+    console.log(req.params);
+    var id= sessionStorage.getItem('id')
+
+    if(filtros == '1'){
+        filtros = "limit 2"
+    } else if (filtros == '2'){
+        filtros = `WHERE ID = ${id}`
+    }
+    usuarioModel.listarPlacar(filtros)
         .then(function (resultado) {
-            if (resultado.length > 0) {
+            
+            if (resultado.length > 0 || filtros == 0) {
                 res.status(200).json(resultado);
             } else {
                 res.status(204).send("Nenhum resultado encontrado!")

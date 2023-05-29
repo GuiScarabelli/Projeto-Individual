@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/quiz.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <div id="tituloResultado">
+        <h3 class="ranking"> Top 5 ranking dos melhores!</h3>
+        </div>
+        <div id="quiz-body">
+            <div id="resultado" style= "display: flex">
+              <select id="caral">
+                <option value="1" >LIMIT 5</option>
+                <option value="2" selected>LIMIT 5</option>
+              </select>
+              <button> filtrar</button>
+              <table>
+                <thead>
+                <tr> 
+                  <th>Nome</th>
+                  <th>Pontos</th>
+                </tr>
+              </thead> 
+              <tbody id="registros">
+                <tr>
+                </tr>
+              </tbody>
+              </table>
+              <div class="botoes">
+              <a href="./quiz.html">
+                <button class="next-btn" id="jogarNovamente"> Jogar novamente</button>
+              </a>
+              <button class="next-btn" id="sair"> Sair</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="js/resultado.js"> </script>
+</body>
+</html>

@@ -2,25 +2,20 @@
 var email = sessionStorage.getItem('email');
 var nome = sessionStorage.getItem('nome');
 var id = sessionStorage.getItem('id');
-
+// var filtro = sessionStorage.setItem()
+var btnEntrar = document.getElementById('btnEntrar')
 
 function validarSessao() {
-  const btnEntrar = document.querySelector('#btn-entrar')
-    if (id == undefined) {
-        alert('saido')
-    }else{
-        btnEntrar.style.opacity = 0
+        // btnEntrar.style.color = "pink"
         btnEntrar.addEventListener('click', ()=>{
           window.location.href = './login.html'
-        })
-    }
-} 
+    })
+}
 
 
 function toggle(){
     var blur = document.getElementById('blur')
     blur.classList.toggle('active')
-    
     var popup = document.getElementById('popupCadastro')
     popup.classList.toggle('active')
 }
@@ -206,6 +201,7 @@ function jogar() {
     var idUsuario = id
     var nome = nome
     var pontos = sessionStorage.getItem('pontos')
+
 
     
     if (nomeVar == "" || emailVar == "" || senhaVar == "") {

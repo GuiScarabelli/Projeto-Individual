@@ -10,10 +10,10 @@ function listar() {
 }
 
 
-function listarPlacar() {
+function listarPlacar(filtros) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
-    select nome, pontuacao from tentativa join usuario on fkusuario = id limit 5;
+    select nome, pontuacao from tentativa join usuario on fkusuario = id  ${filtros};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -43,7 +43,7 @@ function cadastrar(nome, email, senha) {
 function jogar(idUsuario, pontos) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():");
     var instrucao = `
-        INSERT INTO tentativa VALUES (NULL, ${pontos}, '${idUsuario}');
+        INSERT INTO tentativa VALUES (NULL, ${pontos}, ${idUsuario});
     `
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

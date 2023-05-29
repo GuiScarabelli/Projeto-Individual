@@ -52,22 +52,31 @@ html{
 .navbar{
     position: fixed;
     display: flex;
-    background-color: #5A764F;
+    background-color: #658558;
     margin-left: -15px;
     margin-right: 40px;
     margin-top: -15px;
-    height: 70px;
+    height: 85px;
     width: 101%;
   }
 
+.logo{
+  position: absolute;
+  width: 135px;
+  height: 120px;
+  left: 100px;
+  top: -20px;
+}
+
 .navbar .item{
+  position: absolute;
   width: 300px;
   margin-left: 740px;
   margin-right: 50px;
-  margin-top: 26px;
+  top: 20px;
   display: flex;
   justify-content: space-between;
-  list-style: none;
+  list-style-type: none;
 }
 
 .navbar span{
@@ -80,11 +89,6 @@ html{
 }
   
 
-.btn_redirect{
-  color:#ff0000;
-  font-size: medium;
-  margin-left: -100px;
-}
 
 /* style da imagem borrada */
  .texto_foto{
