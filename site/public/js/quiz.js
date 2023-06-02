@@ -1,20 +1,11 @@
 const questions = [
     {
-      question: "Quem ganha numa guerra de AK-47?",
+      question: "dada",
       answers: [
         {text: "Luis Inacio Lula da Silva", correct: false},
         {text: "Lobo pidão", correct: false},
         {text: "Blue pen (caneta azul)", correct: false},
         {text: "Galo cego", correct: true},
-      ],
-    },
-    {
-      question: "Questão especial",
-      answers: [
-        {text: "Voce", correct: false},
-        {text: "Do leme ao pontal", correct: false},
-        {text: "Faroeste Caboclo", correct: false},
-        {text: "DJ Arana", correct: true},
       ],
     },
     {
@@ -25,6 +16,24 @@ const questions = [
         {text: "Pedro Alvares Cabral", correct: false},
         {text: "O Abraão", correct: true},
       ]
+    },
+    {
+      question: "De quem é essa música?",
+      answers: [
+        {text: "Tim Maia", correct: true},
+        {text: "Tom Jobim", correct: false},
+        {text: "Seu Jorge", correct: false},
+        {text: "Elis Regina", correct: false},
+      ],
+    },
+    {
+      question: "Atenção",
+      answers: [
+        {text: "Voce", correct: false},
+        {text: "Do leme ao pontal", correct: false},
+        {text: "Faroeste Caboclo", correct: false},
+        {text: "DJ Arana", correct: true},
+      ],
     }
   ];
 
@@ -36,6 +45,8 @@ const questions = [
   const answerButton = document.getElementById("answer-buttons")
   const nextButton = document.querySelector(".next-btn")
   const tituloResultado = document.getElementById("tituloResultado")
+  const musica = document.querySelector(".musica")
+  const questao3pontos = document.querySelector(".questao3pontos")
   var nomeSessao = sessionStorage.getItem('nome')
   var id = sessionStorage.getItem('id')
 
@@ -76,14 +87,19 @@ const questions = [
         button.dataset.correct = answer.correct
       }
 
-      var audio = new Audio('audio_file.mp3');
-    audio.play();
       if(currentQuestion == questions[1]){
-        audio.style.display = "block"
+        questao3pontos.style.display = 'block'
+        questionElement.style.display = "none"
+        nextButton.style.display = "block"
+        answerButton.style.display = 'none'
+      } else if(currentQuestion == questions[2]){
+        questionElement.style.display = "block"
+        nextButton.style.display = "block"
+        questao3pontos.style.display = 'none'
+        answerButton.style.display = 'block'
+        musica.style.display = 'block'
       } else {
-        tituloResultado.style.color = "red"
-        tituloResultado.style.display = "none"
-        audio.style.display = "none"
+        musica.style.display = 'none'
       }
       button.addEventListener("click", selectAnswer);
     });
