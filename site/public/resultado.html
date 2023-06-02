@@ -11,15 +11,16 @@
 <body>
     <div class="app">
         <div id="tituloResultado">
-        <h3 class="ranking"> Top 5 ranking dos melhores!</h3>
+        <h3 class="ranking"> Ranking das pontuações</h3>
         </div>
         <div id="quiz-body">
             <div id="resultado" style= "display: flex">
               <select id="caral">
-                <option value="1" >LIMIT 5</option>
-                <option value="2" selected>LIMIT 5</option>
+                <option value="1">TOP 5</option>
+                <option value="2">SUAS TENTATIVAS</option>
+                <option value="3">Melhores Pontuações</option>
               </select>
-              <button> filtrar</button>
+              <button onclick="filtrar()" class="btn-filtrar"> Filtrar</button>
               <table>
                 <thead>
                 <tr> 
@@ -36,7 +37,7 @@
               <a href="./quiz.html">
                 <button class="next-btn" id="jogarNovamente"> Jogar novamente</button>
               </a>
-              <button class="next-btn" id="sair"> Sair</button>
+              <button class="next-btn" id="sair">Sair</button>
             </div>
             </div>
           </div>

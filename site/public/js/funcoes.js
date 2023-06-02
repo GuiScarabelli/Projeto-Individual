@@ -2,20 +2,16 @@
 var email = sessionStorage.getItem('email');
 var nome = sessionStorage.getItem('nome');
 var id = sessionStorage.getItem('id');
-// var filtro = sessionStorage.setItem()
-var btnEntrar = document.getElementById('btnEntrar')
+var btnEntra = document.getElementById('btnEntra')
 
-function validarSessao() {
-        // btnEntrar.style.color = "pink"
-        btnEntrar.addEventListener('click', ()=>{
-          window.location.href = './login.html'
-    })
-}
+// function validarSessao() {
+//     if(id == undefined){
+//         alert('nao ta logado')
+//     }
+// }
 
 
 function toggle(){
-    var blur = document.getElementById('blur')
-    blur.classList.toggle('active')
     var popup = document.getElementById('popupCadastro')
     popup.classList.toggle('active')
 }
@@ -48,16 +44,16 @@ function entrar() {
 
     // Verificação se os campos estão preenchidos
     if (email == "" || senha == "") {
-        
         div_aviso.style.opacity = '1'
         resposta_aviso.style.color = 'black'
+        div_aviso.style.backgroundColor = '#fc9999'
+        resposta_aviso.style.backgroundColor = '#fc9999'
         resposta_aviso.innerHTML = 'Insira todos os campos!'
         setTimeout(() => {
           div_aviso.style.opacity = '0'
         }, 3500)
         return false;
-    } else {
-        
+    } else {  
         fetch("/usuarios/autenticar", {
           method: "POST",
           headers: {
@@ -74,9 +70,9 @@ function entrar() {
             resposta.json().then(json => {
               console.log(JSON.stringify(json));
 
-              sessionStorage.setItem('email',json.email)
-              sessionStorage.setItem('nome',json.nome)
               sessionStorage.setItem('id',json.id)
+              sessionStorage.setItem('nome',json.nome)
+              sessionStorage.setItem('email',json.email)
               
 
               div_aviso.style.opacity = '1'
@@ -190,59 +186,3 @@ function cadastrar() {
         })
     return false;
 }
-
-
-
-// Cadastrar jogada
-function jogar() {
-    const div_aviso = document.querySelector('.aviso')
-    const resposta_aviso = document.querySelector('.resposta-cadastro')
-
-    var idUsuario = id
-    var nome = nome
-    var pontos = sessionStorage.getItem('pontos')
-
-
-    
-    if (nomeVar == "" || emailVar == "" || senhaVar == "") {
-        div_aviso.style.opacity = '1'
-        resposta_aviso.style.color = 'black'
-        div_aviso.style.backgroundColor = '#fc9999'
-        resposta_aviso.style.backgroundColor = '#fc9999'
-        resposta_aviso.innerHTML = 'Insira todos os campos!'
-        setTimeout(()=>{
-            div_aviso.style.opacity = '0'
-        },3000)
-        return false;
-    }
-    else {
-        //  alert('Deu erro')
-    }
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/jogar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            nomeUsuario: nome,
-            idUsuario: idUsuario,
-            pontos: pontos
-        })
-    }).then(function (resposta) {
-
-        console.log("resposta: ", resposta);
-        if (resposta.ok) {
-            console.log('OK')   
-            console.log(resposta)
-         } else {
-            throw ("Houve um erro ao tentar realizar o cadastro!");
-         }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-    return false;
-}
-

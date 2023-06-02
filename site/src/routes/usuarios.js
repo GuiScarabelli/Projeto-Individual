@@ -11,7 +11,11 @@ router.get("/listar", function (req, res) {
     usuarioController.listar(req, res);
 });
 
-router.get("/listarPlacar/:filtros", function (req, res) {
+// router.get("/listarPlacar/:filtros", function (req, res) {
+//     usuarioController.listarPlacar(req, res);
+// });
+
+router.get("/listarPlacar", function (req, res) {
     usuarioController.listarPlacar(req, res);
 });
 

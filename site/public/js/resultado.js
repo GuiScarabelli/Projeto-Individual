@@ -1,26 +1,27 @@
-obterDados();
+filtrar();
 
-
-function obterDados() {
+function filtrar(){
   var filtro = caral.value
-  fetch(`/usuarios/listarPlacar/${filtro}`, {
+  var id = sessionStorage.getItem('id')
+  fetch(`/usuarios/listarPlacar/?filtro=${filtro}&id=${id}`, {
     cache: "no-store",
   })
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (resposta) {
-          exibirDados(resposta);
-        });
-      } else {
-        console.error("Nenhum dado encontrado ou erro na API");
-      }
-    })
-    .catch(function (error) {
-      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
+  .then(function (response) {
+    if (response.ok) {
+      response.json().then(function (resposta) {
+        exibirDados(resposta);
+      });
+    } else {
+      console.error("Nenhum dado encontrado ou erro na API");
+    }
+  })
+  .catch(function (error) {
+    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+  });
 }
 
 function exibirDados(resposta) {
+  registros.innerHTML = ``
   for (i = 0; i < resposta.length; i++) {    
     var registro = resposta[i];
     var nome = resposta[i].nome;
@@ -31,4 +32,8 @@ function exibirDados(resposta) {
     tituloResultado.style.display = "block";
   }
 }
+
+
+
+
 

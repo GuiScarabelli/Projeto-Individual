@@ -1,16 +1,17 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
   box-sizing: border-box;
 }
 
 body{
-  background: #001e4d;
+  background: #658558;
+  font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .app{
-  background: #fff;
+  background: #f1efef;
   width: 90%;
   max-width: 600px;
   margin: 100px auto 0;
@@ -20,7 +21,7 @@ body{
 
 .app h1{
   font-size: 25px;
-  color:#001e4d;
+  color:#ffffff;
   font-weight: 600;
   border-bottom: 1px solid #333;
   padding-bottom: 30px;
@@ -35,7 +36,7 @@ body{
 }
 
 .btn{
-  background: #fff;
+  background: #f1efef;
   color: #222;
   font-weight: 500;
   width: 100%;
@@ -53,7 +54,7 @@ body{
 }
 
 .next-btn{
-  background-color: #001e4d;
+  background-color: #658558;
   color: #fff;
   font-weight: 500;
   width: 150px;
@@ -62,19 +63,38 @@ body{
   margin: 20px auto 0;
   border-radius: 4px;
   cursor: pointer;
-  /* display: none; */
+}
+
+.btn-filtrar{
+  background-color: #658558;
+  color: #fff;
+  font-weight: 500;
+  width: 120px;
+  height: 35px;
+  border: 0;
+  padding: 10px;
+  margin: 20px auto 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+select{
+  background-color: #fff;
+  height: 35px;
+  text-align: center;
 }
 
 .botoes{
-  display: flex
+  display: flex;
+  gap: 45%;
 }
 
 .correct{
-  background: #9aeabc;
+  background: #90bd7d;
 }
 
 .incorrect{
-  background: #ff9393;
+  background: #ff7c7c;
 }
 
 #resultado{
@@ -102,4 +122,8 @@ tr:nth-child(even) {
   text-align: center;
   margin-top: 20px;
   display: block;
+}
+
+.picles{
+  overflow-y: auto;
 }

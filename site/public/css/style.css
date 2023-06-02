@@ -62,20 +62,21 @@ html{
 
 .logo{
   position: absolute;
-  width: 135px;
-  height: 120px;
-  left: 100px;
-  top: -20px;
+  width: 120px;
+  height: 110px;
+  left: 108px;
+  top: -11px;
 }
 
 .navbar .item{
   position: absolute;
   width: 300px;
   margin-left: 740px;
-  margin-right: 50px;
-  top: 20px;
+  left: 95px;
+  /* margin-right: 50px; */
+  top: 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style-type: none;
 }
 
@@ -93,7 +94,7 @@ html{
 /* style da imagem borrada */
  .texto_foto{
   display: flex;
-    color: rgb(241, 239, 239);
+    color: #f1efef;
     margin-top: 226px;
     margin-left: 300px;
     margin-bottom: auto;
@@ -199,154 +200,9 @@ html{
       margin-left: 25px;
     }
 
-
-/* Style do modal de login */
-#popupLogin{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  position: absolute;
-  background-color: #D9B44A;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  padding: 50px;
-  visibility: hidden;
-  height: 360px;
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.registro{
-  margin-top: 15px;
-  margin-right: -60px;
-}
-
-#popupLogin.active{
-  visibility: visible;
-  opacity: 11;
-  transition: 0.5s;
-  top: 50%;
-}
-
-.popupCadastro-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 4rem;
-  padding-bottom: 1rem;
-}
-
-.popupCadastro-header h2 {
-  text-transform: uppercase;
-  margin-left: 50%;
-  transform: translate(-50%);
-  color: #5A764F;
-  font-size: 28px;
-}
-.popupCadastro-header h2 {
-  text-transform: uppercase;
-  margin-left: 50%;
-  transform: translate(-50%);
-  color: #5A764F;
-  font-size: 28px;
-}
-
-
-.popupLogin-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-}
-
-.popupLogin-header h2 {
-  text-transform: uppercase;
-  margin-left: 50%;
-  transform: translate(-50%);
-  color: #5A764F;
-  font-size: 28px;
-}
-
-.modal-body {
-  height: 300px;
-  margin-left: 87px;
-  margin-bottom: 35px;
-  width: 310px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  text-align: center;
-  align-items: self-end;
-}
-
-.modal-body .input{
-  margin-left: 115px;
-  color: #5A764F;
-}
-
-.modal-body input {
-  margin-bottom: 20px;
-  width: 130%;
-  height: 45px;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  border-radius: 5px;
-}
-
-.containerModal#blur.active{
-  filter: blur(20px);
-}
-
-
-h2{
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-#popupCadastro{
-  position: absolute;
-  background-color: #333;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  padding: 50px;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.5s;
-}
-
-#popupCadastro.active{
-  visibility: visible;
-  opacity: 11;
-  transition: 0.5s;
-  top: 50%;
-}
-
-
-
 .footer{
   background-color: #333;
   height: 100px;
-}
-
-.botao{
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 12px 35px 0px 0px;
 }
 
 .seta-baixo{
@@ -536,3 +392,71 @@ h4{
 .containerFooter .div_final_footer div{
   width: fit-content;
 }
+
+
+
+.button {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button:hover {
+  background-color: #2c974b;
+}
+
+.button:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+
+.button-modal {
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 3px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  right: 65px;
+}
+
+.button-modal:hover {
+  background-color: #2c974b;
+}
+
+.button-modal:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+
+a{
+  cursor: pointer;
+}
+

@@ -1,0 +1,134 @@
+#popupLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    background-color: #fff9b4;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    padding: 50px;
+    visibility: hidden;
+    height: 360px;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  
+  .registro{
+    margin-top: 15px;
+    margin-right: -60px;
+  }
+  
+  #popupLogin.active{
+    visibility: visible;
+    opacity: 11;
+    transition: 0.5s;
+    top: 50%;
+  }
+  
+  .popupCadastro-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 4rem;
+    padding-bottom: 1rem;
+  }
+  
+  .popupCadastro-header h2 {
+    text-transform: uppercase;
+    margin-left: 50%;
+    transform: translate(-50%);
+    color: #5A764F;
+    font-size: 28px;
+  }
+  .popupCadastro-header h2 {
+    text-transform: uppercase;
+    margin-left: 50%;
+    transform: translate(-50%);
+    color: #5A764F;
+    font-size: 28px;
+  }
+  
+  
+  .popupLogin-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .popupLogin-header h2 {
+    text-transform: uppercase;
+    margin-left: 50%;
+    transform: translate(-50%);
+    color: #5A764F;
+    font-size: 28px;
+  }
+  
+  .modal-body {
+    height: 300px;
+    margin-left: 87px;
+    margin-bottom: 35px;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: self-end;
+  }
+  
+  .modal-body .input{
+    margin-left: 115px;
+    color: #5A764F;
+  }
+  
+  .modal-body input {
+    margin-bottom: 20px;
+    width: 130%;
+    height: 45px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  
+  .container#blur.active{
+    filter: blur(2px);
+  }
+  
+  
+  h2{
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  #popupCadastro{
+    position: absolute;
+    background-color: #fff9b4;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    padding: 50px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  
+  input{
+    background-color: #fff;
+  }
+  
+  
+  #popupCadastro.active{
+    visibility: visible;
+    opacity: 11;
+    transition: 0.5s;
+    top: 50%;
+  }

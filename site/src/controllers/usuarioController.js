@@ -1,11 +1,7 @@
 var usuarioModel = require("../models/usuarioModel");
 
-var sessoes = [];
 
-function testar(req, res) {
-    console.log("ENTRAMOS NA usuarioController");
-    res.json("ESTAMOS FUNCIONANDO!");
-}
+var sessoes = [];
 
 function listar(req, res) {
     usuarioModel.listar()
@@ -25,13 +21,22 @@ function listar(req, res) {
 }
 
 function listarPlacar(req, res) {
-    console.log(req.params);
-    var id= sessionStorage.getItem('id')
+    var filtros = req.query.filtro
+    var id = req.query.id
 
+
+    console.log(req.query.id);
+    console.log(req.query.filtro);
+    console.log(req.query);
+    
+
+    
     if(filtros == '1'){
-        filtros = "limit 2"
+        filtros = "ORDER BY pontuacao desc LIMIT 5"
     } else if (filtros == '2'){
-        filtros = `WHERE ID = ${id}`
+        filtros = `where id = ${id}`
+    } else if (filtros == '3'){
+        filtros = "ORDER BY pontuacao desc"
     }
     usuarioModel.listarPlacar(filtros)
         .then(function (resultado) {
@@ -85,6 +90,7 @@ function entrar(req, res) {
     }
 
 }
+
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -153,5 +159,4 @@ module.exports = {
     jogar,
     listar,
     listarPlacar,
-    testar
 }

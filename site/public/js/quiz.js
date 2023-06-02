@@ -29,6 +29,7 @@ const questions = [
   ];
 
 
+
   const quizBody = document.getElementById("quiz-body")
   const questionElement = document.getElementById("question")
   const questionNoo= document.getElementById("questionNo")
@@ -36,6 +37,7 @@ const questions = [
   const nextButton = document.querySelector(".next-btn")
   const tituloResultado = document.getElementById("tituloResultado")
   var nomeSessao = sessionStorage.getItem('nome')
+  var id = sessionStorage.getItem('id')
 
   tituloResultado.style.display = "none"
 
@@ -43,7 +45,16 @@ const questions = [
 
   let currentQuestionIndex = 0
   let  score = 0
-  
+
+
+  // validação para poder jogar só se estiver com login feito
+  // if(id == undefined){
+  //   alert('faça o login para jogar')
+  //   window.location.href = './index.html'
+  // }
+
+
+
   function startQuiz(){
     currentQuestionIndex = 0
     score = 0
@@ -65,11 +76,15 @@ const questions = [
         button.dataset.correct = answer.correct
       }
 
+      var audio = new Audio('audio_file.mp3');
+    audio.play();
       if(currentQuestion == questions[1]){
+        audio.style.display = "block"
+      } else {
         tituloResultado.style.color = "red"
-        tituloResultado.style.display = "block"
+        tituloResultado.style.display = "none"
+        audio.style.display = "none"
       }
-
       button.addEventListener("click", selectAnswer);
     });
   }
@@ -104,7 +119,7 @@ const questions = [
     resetState()
     sessionStorage.setItem('pontos', score)
     setTimeout(() =>{
-      window.location.href = '../resultado.html'
+      window.location.href = './resultado.html'
      },0)
   }
   
