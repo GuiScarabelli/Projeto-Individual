@@ -54,7 +54,7 @@ function jogar(idUsuario, pontos) {
 module.exports = {
     entrar,
     cadastrar,
-    jogar,
+    jogar   ,
     listar,
     listarPlacar,
 };
